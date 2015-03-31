@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.input.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.kit.pse.mandatsverteilung.view.MainWindowController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Datei">
+            <items>
+                  <MenuItem fx:id="newStandardEelectionMenuItem" mnemonicParsing="false" onAction="#handleMenuNewStandardElection" text="Neue Standard-Wahl" />
+                  <MenuItem fx:id="newElectionMenuItem" mnemonicParsing="false" onAction="#handleMenuNewElection" text="Neue leere Wahl">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="importElectionMenuItem" mnemonicParsing="false" onAction="#handleMenuImportElection" text="Stimmverteilung für neue Wahl importieren...">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#handleMenuExit" text="Beenden" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ansicht">
+               <items>
+                  <RadioMenuItem mnemonicParsing="false" onAction="#handleFontNormal" selected="true" text="Normale Schrift">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="fontSize" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem mnemonicParsing="false" onAction="#handleFontBig" text="Große Schrift" toggleGroup="$fontSize" />
+                  <RadioMenuItem mnemonicParsing="false" onAction="#handleFontVeryBig" text="Sehr große Schrift" toggleGroup="$fontSize" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" text="Hilfe">
+            <items>
+              <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#handleMenuAbout" text="Über..." />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

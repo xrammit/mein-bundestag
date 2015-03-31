@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="543.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.kit.pse.mandatsverteilung.view.DataInputPaneController">
+   <children>
+      <VBox prefHeight="543.0" prefWidth="950.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <SplitPane dividerPositions="0.7527233115468409" prefHeight="620.0" prefWidth="1019.0" VBox.vgrow="ALWAYS">
+               <items>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <top>
+                        <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" prefWidth="688.0" spacing="8.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label fx:id="filterLabel" minWidth="-Infinity" style="-fx-font-weight: bold;" text="Filterung:" underline="true" HBox.hgrow="NEVER" />
+                              <ComboBox fx:id="kindOfVotesFilterComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="82.0" HBox.hgrow="ALWAYS">
+                              	<tooltip>
+							        <Tooltip text="Filtert die Stimmverteilung nach Erst- und/oder Zweitstimmen"/>
+							    </tooltip>
+                              </ComboBox>
+                              <ComboBox fx:id="stateFilterComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="120.0" HBox.hgrow="ALWAYS">
+                              <tooltip>
+							        <Tooltip text="Filtert die Stimmverteilung nach Bundesland"/>
+							    </tooltip>
+                              </ComboBox>
+                              <ComboBox fx:id="partyFilterComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="109.0" HBox.hgrow="ALWAYS">
+                              	<tooltip>
+							        <Tooltip text="Filtert die Stimmverteilung nach Partei"/>
+							    </tooltip>
+                              </ComboBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                        </HBox>
+                     </top>
+                     <center>
+                        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="15.0" prefWidth="711.0" spacing="8.0" VBox.vgrow="NEVER">
+                                 <children>
+                                    <Label fx:id="wardsLabel" style="-fx-font-weight: bold;" text="Wahlkreise:" underline="true" />
+                                    <Button fx:id="addWardButton" mnemonicParsing="false" onAction="#handleAddRecord">
+                                    <tooltip>
+								        <Tooltip text="Neuen Wahlkreis hinzufügen"/>
+								    </tooltip>
+                                    </Button>
+                                    <Button fx:id="removeWardButton" disable="true" mnemonicParsing="false" onAction="#handleDeleteRecord">
+                                    <tooltip>
+								        <Tooltip text="Wahlkreis entfernen"/>
+								    </tooltip>
+                                    </Button>
+                                    <Label fx:id="searchLabel" minWidth="-Infinity" style="-fx-font-weight: bold;" text="Wahlkreis suchen:" underline="true" HBox.hgrow="NEVER">
+                                       <HBox.margin>
+                                          <Insets left="16.0" />
+                                       </HBox.margin></Label>
+                                    <TextField fx:id="wardFilterTextField" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="78.0" HBox.hgrow="ALWAYS">
+                                    <tooltip>
+								        <Tooltip text="Sucht anhand des Namens nach Wahlkreisen"/>
+								    </tooltip>
+                                    </TextField>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </HBox>
+                              <TableView fx:id="voteDistributionTableView" editable="true" prefHeight="372.0" prefWidth="352.0" VBox.vgrow="ALWAYS">
+                                <columns>
+                                  <TableColumn fx:id="stateTableColumn" prefWidth="200.0" text="Wahlkreis">
+                                       <columns>
+                                          <TableColumn fx:id="wardIdTableColumn" prefWidth="100.0" text="Nr." />
+                                          <TableColumn fx:id="wardNameTableColumn" prefWidth="100.0" text="Name" />
+                                       </columns>
+                                    </TableColumn>
+                                  <TableColumn fx:id="stateTableColumn" minWidth="7.0" prefWidth="200.0" text="Bundesland" />
+                                </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                      <items>
+                                        <MenuItem fx:id="addWardMenuItem" mnemonicParsing="false" onAction="#handleAddRecord" text="Neuer Wahlkreis" />
+                                          <MenuItem fx:id="removeWardMenuItem" disable="true" mnemonicParsing="false" onAction="#handleDeleteRecord" text="Wahlkreis entfernen" />
+                                      </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </center>
+                  </BorderPane>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="235.0" prefWidth="224.0" text="Bundesländer" VBox.vgrow="ALWAYS">
+                           <content>
+                              <BorderPane prefHeight="292.0" prefWidth="222.0">
+                                 <center>
+                                    <ListView fx:id="statesListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                            <items>
+                                                <MenuItem fx:id="addStateContextMenuItem" mnemonicParsing="false" onAction="#handleAddState" text="Hinzufügen" />
+                                                <MenuItem fx:id="removeStateContextMenuItem" disable="true" mnemonicParsing="false" onAction="#handleDeleteState" text="Entfernen" />
+                                                <MenuItem fx:id="editStateContextMenuItem" disable="true" mnemonicParsing="false" onAction="#handleEditState" text="Bearbeiten" />
+                                            </items>
+                                          </ContextMenu>
+                                       </contextMenu></ListView>
+                                 </center>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <bottom>
+                                    <HBox spacing="8.0" BorderPane.alignment="CENTER">
+                                       <children>
+                                          <Button fx:id="addStateButton" mnemonicParsing="false" onAction="#handleAddState">
+                                          <tooltip>
+									        <Tooltip text="Neues Bundesland hinzufügen"/>
+									    </tooltip>
+                                          </Button>
+                                          <Button fx:id="removeStateButton" disable="true" mnemonicParsing="false" onAction="#handleDeleteState">
+                                          <tooltip>
+									        <Tooltip text="Bundesland entfernen"/>
+									    </tooltip>
+                                          </Button>
+                                          <Button fx:id="editStateButton" disable="true" mnemonicParsing="false" onAction="#handleEditState">
+                                          <tooltip>
+									        <Tooltip text="Bundesland bearbeiten"/>
+									    </tooltip>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" top="8.0" />
+                                       </padding>
+                                    </HBox>
+                                 </bottom>
+                              </BorderPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" collapsible="false" maxHeight="1.7976931348623157E308" minHeight="100.0" prefHeight="235.0" prefWidth="224.0" text="Parteien" VBox.vgrow="ALWAYS">
+                           <content>
+                              <BorderPane prefHeight="292.0" prefWidth="222.0">
+                                 <bottom>
+                                    <HBox spacing="8.0" BorderPane.alignment="CENTER">
+                                       <padding>
+                                          <Insets bottom="8.0" top="8.0" />
+                                       </padding>
+                                       <children>
+                                          <Button fx:id="addPartyButton" mnemonicParsing="false" onAction="#handleAddParty">
+                                          <tooltip>
+									        <Tooltip text="Neue Partei hinzufügen"/>
+									    </tooltip>
+                                          </Button>
+                                          <Button fx:id="removePartyButton" disable="true" mnemonicParsing="false" onAction="#handleDeleteParty">
+                                          <tooltip>
+									        <Tooltip text="Partei entfernen"/>
+									    </tooltip>
+                                          </Button>
+                                          <Button fx:id="editPartyButton" disable="true" mnemonicParsing="false" onAction="#handleEditParty">
+                                          <tooltip>
+									        <Tooltip text="Partei bearbeiten"/>
+									    </tooltip>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </bottom>
+                                 <center>
+                                    <ListView fx:id="partiesListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                            <items>
+                                              <MenuItem fx:id="addPartyContextMenuItem" mnemonicParsing="false" onAction="#handleAddParty" text="Hinzufügen" />
+                                                <MenuItem fx:id="removePartyContextMenuItem" disable="true" mnemonicParsing="false" onAction="#handleDeleteParty" text="Entfernen" />
+                                                <MenuItem fx:id="editPartyContextMenuItem" disable="true" mnemonicParsing="false" onAction="#handleEditParty" text="Bearbeiten" />
+                                            </items>
+                                          </ContextMenu>
+                                       </contextMenu></ListView>
+                                 </center>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </BorderPane>
+                           </content>
+                        </TitledPane>
+                     </children>
+                  </VBox>
+               </items>
+            </SplitPane>
+            <HBox alignment="CENTER" prefHeight="31.0" prefWidth="1019.0" spacing="8.0" VBox.vgrow="NEVER">
+               <children>
+                  <Button fx:id="importVoteDistributionButton" mnemonicParsing="false" onAction="#handleImportVoteDistribution" text="Stimmverteilung importieren..." HBox.hgrow="NEVER">
+                  	<tooltip>
+			        	<Tooltip text="Stimmverteilung importieren und auf aktuelle Wahl anwenden"/>
+			    	</tooltip>
+                  </Button>
+                  <Button fx:id="exportVoteDistributionButton" mnemonicParsing="false" onAction="#handleExportVoteDistribution" text="Stimmverteilung exportieren..." HBox.hgrow="NEVER">
+                  	<tooltip>
+				        <Tooltip text="Stimmverteilung der aktuellen Wahl exportieren"/>
+				    </tooltip>
+                  </Button>
+                  <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="503.0" layoutY="686.0" maxWidth="1.7976931348623157E308" text="Berechnungsverfahren:" textAlignment="RIGHT" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="customizeMethodExecutorButton" disable="true" mnemonicParsing="false" text="Anpassen...">
+                  	<tooltip>
+				        <Tooltip text="Anpassen des benutzerdefinierten Wahlverfahrens"/>
+				    </tooltip>
+                  </Button>
+                  <ComboBox fx:id="calculationModelComboBox" layoutX="340.0" layoutY="376.0" prefHeight="25.0" prefWidth="220.0" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="145.0" HBox.hgrow="NEVER">
+                  	<tooltip>
+				        <Tooltip text="Das Verfahren, das zur Berechnung der Mandatsverteilung verwendet wird"/>
+				    </tooltip>
+                  </ComboBox>
+                  <Button fx:id="startCalculationButton" layoutX="571.0" layoutY="376.0" mnemonicParsing="false" onAction="#handleStartCalculation" text="Berechnung starten" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="14.0" HBox.hgrow="NEVER">
+                  	<tooltip>
+				        <Tooltip text="Startet die Berechnung der Mandatsverteilung mit der aktuellen Stimmverteilung und dem gewählen Berechnungsverfahren"/>
+				    </tooltip>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

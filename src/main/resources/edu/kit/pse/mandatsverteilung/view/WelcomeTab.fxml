@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.kit.pse.mandatsverteilung.view.WelcomeTabController">
+   <bottom>
+      <Label text="Um mit der Berechnung einer Bundestagswahl zu beginnen, haben Sie mehrere Möglichkeiten. Klicken Sie dazu auf einen der oberen Buttons." wrapText="true" BorderPane.alignment="CENTER" />
+   </bottom>
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+   </padding>
+   <center>
+      <Pane fx:id="logoPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets bottom="32.0" left="32.0" right="32.0" top="32.0" />
+         </BorderPane.margin>
+      </Pane>
+   </center>
+   <top>
+      <VBox alignment="CENTER" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label style="-fx-font-size: 2em;" text="Herzlich Willkommen!" />
+            <Label style="-fx-font-size: 4em; -fx-font-weight: bold;" text="Mein Bundestag" />
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

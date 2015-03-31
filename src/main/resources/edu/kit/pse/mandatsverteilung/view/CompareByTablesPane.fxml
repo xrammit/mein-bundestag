@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.kit.pse.mandatsverteilung.view.CompareByTablesPaneController">
+   <children>
+      <TabPane prefHeight="528.0" prefWidth="792.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Stimmverteilung">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="voteDifferenceTable" layoutX="126.0" layoutY="85.0" prefHeight="499.0" prefWidth="792.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="voteDifferenceStateLeftColumn" prefWidth="200.0" />
+                              <TableColumn fx:id="voteDifferenceStateRightColumn" prefWidth="200.0" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Sitzverteilung">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <TableView fx:id="seatDifferencesTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                           <columns>
+                              <TableColumn fx:id="seatDifferencesPartyColumn" prefWidth="132.0" text="Partei" />
+                              <TableColumn prefWidth="288.0" text="Sitze gesamt">
+                                 <columns>
+                                    <TableColumn fx:id="seatDifferencesSeatsLeftColumn" prefWidth="75.0" />
+                                    <TableColumn fx:id="seatDifferencesSeatsDiffColumn" prefWidth="75.0" text="Diff." />
+                                    <TableColumn fx:id="seatDifferencesSeatsRightColumn" prefWidth="75.0" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Direktmandate">
+                                 <columns>
+                                    <TableColumn fx:id="seatDifferencesDirectLeftColumn" prefWidth="75.0" />
+                                    <TableColumn fx:id="seatDifferencesDirectDiffColumn" prefWidth="75.0" text="Diff." />
+                                    <TableColumn fx:id="seatDifferencesDirectRightColumn" prefWidth="75.0" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Ausgleichsmandate">
+                                 <columns>
+                                    <TableColumn fx:id="seatDifferencesLevelingLeftColumn" prefWidth="75.0" />
+                                    <TableColumn fx:id="seatDifferencesLevelingDiffColumn" prefWidth="75.0" text="Diff." />
+                                    <TableColumn fx:id="seatDifferencesLevelingRightColumn" prefWidth="75.0" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Zweitstimmen gesamt">
+                                 <columns>
+                                    <TableColumn fx:id="seatDifferencesSecondVotesLeftColumn" prefWidth="75.0" />
+                                    <TableColumn fx:id="seatDifferencesSecondVotesDiffColumn" prefWidth="75.0" text="Diff." />
+                                    <TableColumn fx:id="seatDifferencesSecondVotesRightColumn" prefWidth="75.0" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="\% Zweitstimmen gesamt">
+                                 <columns>
+                                    <TableColumn fx:id="seatDifferencesSecondVotesPercentLeftColumn" prefWidth="75.0" />
+                                    <TableColumn fx:id="seatDifferencesSecondVotesPercentDiffColumn" prefWidth="75.0" text="Diff." />
+                                    <TableColumn fx:id="seatDifferencesSecondVotesPercentRightColumn" prefWidth="75.0" />
+                                 </columns>
+                              </TableColumn>
+                           </columns>
+                        </TableView>
+                     </center>
+                     <top>
+                        <HBox prefHeight="0.0" prefWidth="792.0" spacing="8.0" BorderPane.alignment="CENTER_LEFT">
+                           <children>
+                              <Label style="-fx-font-weight: bold;" text="Spalten anzeigen:" underline="true" />
+                              <RadioButton fx:id="seatDifferencesOnlyDifferencesRadioButton" mnemonicParsing="false" onAction="#filterColumns" text="Nur Differenzen">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="columnsView" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="seatDifferencesBothRadioButton" mnemonicParsing="false" onAction="#filterColumns" selected="true" text="Differenzen und Werte" toggleGroup="$columnsView" />
+                              <RadioButton fx:id="seatDifferencesOnlyValuesRadioButton" mnemonicParsing="false" onAction="#filterColumns" text="Nur Werte" toggleGroup="$columnsView" />
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

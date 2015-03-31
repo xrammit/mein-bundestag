@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="492.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.kit.pse.mandatsverteilung.view.ComparePaneController">
+   <children>
+      <VBox prefHeight="492.0" prefWidth="733.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TabPane fx:id="tabPane" prefHeight="440.0" prefWidth="733.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" />
+            <HBox alignment="CENTER_RIGHT" spacing="8.0" VBox.vgrow="NEVER">
+               <children>
+                  <Button fx:id="endCompareButton" mnemonicParsing="false" onAction="#handleCloseButton" text="Vergleich beenden">
+                  	<tooltip>
+				        <Tooltip text="Schließt das Fenster"/>
+				    </tooltip>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

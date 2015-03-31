@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<GridPane hgap="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="697.0" vgap="8.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.kit.pse.mandatsverteilung.view.dialog.CustomMethodExecutorDialogController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="195.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="447.0" minWidth="10.0" prefWidth="405.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="80.0" prefHeight="80.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Ausgangsberechnungsverfahren:" />
+      <ComboBox fx:id="baseMethodExecutorComboBox" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="428.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+      <CheckBox fx:id="levelingSeatsCheckBox" mnemonicParsing="false" text="Ausgleichsmandate aktivieren" GridPane.rowIndex="3" />
+      <GridPane fx:id="thresholdGridPane" hgap="8.0" prefHeight="72.0" prefWidth="708.0" vgap="8.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="320.0" minWidth="10.0" prefWidth="167.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="329.0" minWidth="10.0" prefWidth="272.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Prozenthürde (Zweitstimmen):" />
+            <Label text="Mindesanzahl Direktmandate:" GridPane.rowIndex="1" />
+            <TextField fx:id="thresholdSeatCountTextField" maxWidth="-Infinity" prefHeight="25.0" prefWidth="75.0" GridPane.columnIndex="1" GridPane.hgrow="NEVER" GridPane.rowIndex="1" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+               <children>
+                  <Slider fx:id="thresholdPercentSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5000.0" minorTickCount="1" snapToTicks="true" value="500.0" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="thresholdPercentTextField" prefWidth="75.0" HBox.hgrow="NEVER" />
+               </children>
+            </HBox>
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </GridPane>
+      <CheckBox fx:id="thresholdCheckBox" mnemonicParsing="false" text="Sperrklausel:" GridPane.rowIndex="2" />
+      <HBox fx:id="initialSeatCountHBox" alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="8.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="NEVER">
+         <children>
+            <Slider fx:id="initialSeatCountSlider" majorTickUnit="1.0" max="2000.0" minorTickCount="0" snapToTicks="true" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="initialSeatCountTextField" prefHeight="25.0" prefWidth="75.0" HBox.hgrow="NEVER" />
+         </children>
+      </HBox>
+      <CheckBox fx:id="initialSeatCountCheckBox" mnemonicParsing="false" text="Mindestsitze im Bundestag:" GridPane.rowIndex="1" />
+   </children>
+   <padding>
+      <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+   </padding>
+</GridPane>

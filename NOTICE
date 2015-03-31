@@ -1,0 +1,28 @@
+Mein Bundestag
+Copyright 2014-2015 Marcel Groß, Tim Marx, Rebecca Seelos, Jonathan Simantzik, Benedict Toussaint
+
+This program is licensed under the CC BY-NC-SA 3.0 DE license. (see LICENSE)
+
+This product includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+
+Logging capability is provided by log4j, which is open source software distributed by the Apache Software Foundation and licensed under the Apache License, Version 2.0.
+The original software is available from
+  http://logging.apache.org/log4j/1.2/
+
+Additional math support is provided by the apache commons-math3 library, which is open source software licensed under the Apache License, Version 2.0.
+The original software is available from
+  http://commons.apache.org/proper/commons-math/index.html
+
+
+The capability to deal with .csv files is provided by super-csv, which is open source software written by Kasper B. Graversen and licensed under the Apache License, Version 2.0.
+The original software is available from 
+  http://super-csv.github.io/super-csv/index.html
+
+FOOBAR is provided by jfx-testrunner, which is open source software written by Alexander Casall and licensed under the Apache License, Version 2.0.
+The original software is available from 
+  https://github.com/sialcasa/jfx-testrunner
+
+Additional JavaFx functionality is provided by ControlsFx, which is open source software licensed under the 3-Clause BSD license.
+The original software is available from 
+  http://fxexperience.com/controlsfx/

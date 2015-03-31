@@ -1,0 +1,16 @@
+**/Thumbs.db
+docs/**/*.aux
+docs/**/*.log
+docs/**/*.synctex.gz
+docs/**/*.toc
+docs/**/*.out
+docs/**/*.zargo~
+docs/**/*.vpp~*
+docs/**/*.bak
+.classpath
+.project
+.settings/
+.idea
+*.iml
+/target/
+/bin/
